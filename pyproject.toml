@@ -1,0 +1,60 @@
+[project]
+name = "ncbi-client"
+version = "0.1.0"
+description = "A comprehensive Python client for NCBI E-utilities and APIs"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    { name = "Ahmad Shrif", email = "ahmad.shrif@gmail.com" }
+]
+keywords = ["ncbi", "eutils", "bioinformatics", "pubmed", "entrez"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research", 
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+    "Topic :: Software Development :: Libraries :: Python Modules"
+]
+requires-python = ">=3.8"
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=22.0.0",
+    "flake8>=5.0.0",
+    "mypy>=1.0.0"
+]
+async = [
+    "aiohttp>=3.8.0"
+]
+cli = [
+    "click>=8.0.0",
+    "tqdm>=4.64.0"
+]
+bio = [
+    "biopython>=1.80"
+]
+data = [
+    "pandas>=1.5.0",
+    "numpy>=1.21.0"
+]
+
+[project.scripts]
+ncbi-client = "ncbi_client.cli:main"
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-dir]
+"" = "src"
